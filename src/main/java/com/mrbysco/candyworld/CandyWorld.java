@@ -46,7 +46,7 @@ public class CandyWorld {
 		ModBlocks.BLOCKS.register(eventBus);
 		ModFluids.FLUIDS.register(eventBus);
 		ModEntities.ENTITIES.register(eventBus);
-		ModBiomes.BIOMES.register(eventBus);
+		//ModBiomes.BIOMES.register(eventBus);
 		ModConfiguredFeatures.CONFIGURED_FEATURES.register(eventBus);
 		ModPlacedFeatures.PLACED_FEATURES.register(eventBus);
 		ModSurfaceRules.RULE_REGISTRY.register(eventBus);
@@ -57,7 +57,7 @@ public class CandyWorld {
 		ModFeatures.FEATURES.register(eventBus);
 		CandyTrunkPlacers.TRUNK_PLACERS.register(eventBus);
 
-		MinecraftForge.EVENT_BUS.addListener(ModEntities::addSpawns);
+		//MinecraftForge.EVENT_BUS.addListener(ModEntities::addSpawns);
 		MinecraftForge.EVENT_BUS.register(new WorldgenHandler());
 		eventBus.addListener(ModEntities::registerEntityAttributes);
 
@@ -71,9 +71,9 @@ public class CandyWorld {
 	}
 
 	private void setup(final FMLCommonSetupEvent event) {
-		ModEntities.registerSpawnPlacement();
-		ModBiomes.addBiomeTypes();
-		ModBiomes.addBiomes();
+		//ModEntities.registerSpawnPlacement();
+		//ModBiomes.addBiomeTypes();
+		//ModBiomes.addBiomes();
 //		ModDimension.registerStuff();
 	}
 }

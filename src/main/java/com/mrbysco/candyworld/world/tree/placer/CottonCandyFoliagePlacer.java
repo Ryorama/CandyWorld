@@ -5,6 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.mrbysco.candyworld.registry.ModBlocks;
 import com.mrbysco.candyworld.world.ModFoliagePlacer;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.block.Blocks;
@@ -35,7 +36,7 @@ public class CottonCandyFoliagePlacer extends FoliagePlacer {
 	}
 
 	@Override
-	protected void createFoliage(LevelSimulatedReader reader, BiConsumer<BlockPos, BlockState> biConsumer, Random random, TreeConfiguration featureConfig, int p_161426_, FoliageAttachment foliage, int p_161428_, int p_161429_, int p_161430_) {
+	protected void createFoliage(LevelSimulatedReader reader, FoliageSetter foliageSetter, RandomSource random, TreeConfiguration featureConfig, int i, FoliageAttachment foliage, int i1, int i2, int i3) {
 		BlockPos blockpos = foliage.pos();
 		BlockState leafState = featureConfig.foliageProvider.getState(random, blockpos);
 		BlockState trunkState = featureConfig.trunkProvider.getState(random, blockpos);
@@ -131,12 +132,12 @@ public class CottonCandyFoliagePlacer extends FoliagePlacer {
 	}
 
 	@Override
-	public int foliageHeight(Random random, int treeHeight, TreeConfiguration featureConfig) {
+	public int foliageHeight(RandomSource random, int treeHeight, TreeConfiguration featureConfig) {
 		return Math.max(4, treeHeight - this.trunkHeight.sample(random));
 	}
 
 	@Override
-	protected boolean shouldSkipLocation(Random random, int p_230373_2_, int p_230373_3_, int p_230373_4_, int p_230373_5_, boolean p_230373_6_) {
+	protected boolean shouldSkipLocation(RandomSource random, int p_230373_2_, int p_230373_3_, int p_230373_4_, int p_230373_5_, boolean p_230373_6_) {
 		return p_230373_2_ == p_230373_5_ && p_230373_4_ == p_230373_5_ && (random.nextInt(2) == 0 || p_230373_3_ == 0);
 	}
 }
