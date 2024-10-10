@@ -182,9 +182,9 @@ public class ModBlocks {
 	public static final RegistryObject<Block> GREEN_GUMMY_WORKBENCH = registerBlock("green_gummy_workbench", () -> new GummyWorkbenchBlock(Properties.of().strength(0.5F).friction(0.6F).sound(ModSoundTypes.GUMMY)));
 
 	// fluids
-	public static final RegistryObject<Block> LIQUID_CHOCOLATE_BLOCK = BLOCKS.register("liquid_chocolate", () ->
+	public static final RegistryObject<LiquidChocolateBlock> LIQUID_CHOCOLATE_BLOCK = BLOCKS.register("liquid_chocolate", () ->
 			new LiquidChocolateBlock(ModFluids.LIQUID_CHOCOLATE_SOURCE, BlockBehaviour.Properties.of().noCollission().strength(100.0F).noLootTable()));
-	public static final RegistryObject<Block> LIQUID_CANDY_BLOCK = BLOCKS.register("liquid_candy", () ->
+	public static final RegistryObject<LiquidBlock> LIQUID_CANDY_BLOCK = BLOCKS.register("liquid_candy", () ->
 			new LiquidBlock(ModFluids.LIQUID_CANDY_SOURCE, BlockBehaviour.Properties.of().noCollission().strength(100.0F)
 					.lightLevel((state) -> 12).noLootTable()));
 

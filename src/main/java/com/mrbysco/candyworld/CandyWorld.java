@@ -4,15 +4,12 @@ import com.mrbysco.candyworld.block.fluid.ModFluids;
 import com.mrbysco.candyworld.client.ClientHandler;
 import com.mrbysco.candyworld.config.CandyConfig;
 import com.mrbysco.candyworld.entity.ModLootTables;
-import com.mrbysco.candyworld.registry.ModBiomes;
 import com.mrbysco.candyworld.registry.ModBlocks;
 import com.mrbysco.candyworld.registry.ModEntities;
 import com.mrbysco.candyworld.registry.ModItems;
 import com.mrbysco.candyworld.world.CandyTrunkPlacers;
-import com.mrbysco.candyworld.world.ModConfiguredFeatures;
 import com.mrbysco.candyworld.world.ModFeatures;
 import com.mrbysco.candyworld.world.ModFoliagePlacer;
-import com.mrbysco.candyworld.world.ModPlacedFeatures;
 import com.mrbysco.candyworld.world.ModSurfaceRules;
 import com.mrbysco.candyworld.world.WorldgenHandler;
 import net.minecraftforge.api.distmarker.Dist;
@@ -32,6 +29,7 @@ public class CandyWorld {
 	public static final String MOD_ID = "candyworld";
 	public static final Logger LOGGER = LogManager.getLogger();
 
+	@SuppressWarnings("removal")
 	public CandyWorld() {
 		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CandyConfig.commonSpec);
@@ -47,8 +45,6 @@ public class CandyWorld {
 		ModFluids.FLUIDS.register(eventBus);
 		ModEntities.ENTITIES.register(eventBus);
 		//ModBiomes.BIOMES.register(eventBus);
-		ModConfiguredFeatures.CONFIGURED_FEATURES.register(eventBus);
-		ModPlacedFeatures.PLACED_FEATURES.register(eventBus);
 		ModSurfaceRules.RULE_REGISTRY.register(eventBus);
 
 //		ModSurfaceBuilders.SURFACE_BUILDERS.register(eventBus);

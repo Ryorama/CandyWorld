@@ -14,7 +14,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class EdibleSwordItem extends SwordItem implements IItemToolEdible {
 
-	public EdibleSwordItem(Tier tier, float attackDamageIn, float attackSpeedIn, Item.Properties properties) {
+	public EdibleSwordItem(Tier tier, int attackDamageIn, float attackSpeedIn, Item.Properties properties) {
 		super(tier, attackDamageIn, attackSpeedIn, properties);
 	}
 	///////////////////////////////////////////////////////////////////////////

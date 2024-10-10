@@ -30,48 +30,48 @@ public class CandyItemModelProvider extends ItemModelProvider {
 
 	@Override
 	protected void registerModels() {
-		for (RegistryObject<Item> registryObject : ModItems.ITEMS.getEntries()) {
-			if (registryObject.get() instanceof BlockItem blockItem) {
-				if (blockItem.getBlock() instanceof SaplingBlock) {
-					singleTexture(registryObject.getId().getPath(), new ResourceLocation("item/generated"),
-							"layer0", new ResourceLocation(CandyWorld.MOD_ID, "block/" + registryObject.getId().getPath()));
-				} else if (blockItem.getBlock() instanceof ChocolateMushroomBlock) {
-					withExistingParent(registryObject.getId().getPath(),
-							new ResourceLocation(CandyWorld.MOD_ID, "block/" + registryObject.getId().getPath() + "0"));
-				} else if (blockItem.getBlock() instanceof CottonCandyBushBlock) {
-					singleTexture(registryObject.getId().getPath(), new ResourceLocation("item/generated"),
-							"layer0", new ResourceLocation(CandyWorld.MOD_ID, "block/" + registryObject.getId().getPath() + "0"));
-				} else if (blockItem.getBlock() instanceof GummyBlock) {
-					withExistingParent(registryObject.getId().getPath(),
-							new ResourceLocation(CandyWorld.MOD_ID, "block/gummy_block"));
-				} else if (blockItem.getBlock() instanceof GummyWormBlock) {
-					withExistingParent(registryObject.getId().getPath(),
-							new ResourceLocation(CandyWorld.MOD_ID, "block/gummy_worm_block"));
-				} else if (blockItem.getBlock() instanceof GummyWorkbenchBlock) {
-					withExistingParent(registryObject.getId().getPath(),
-							new ResourceLocation(CandyWorld.MOD_ID, "block/gummy_workbench"));
-				} else if (blockItem.getBlock() instanceof BaseGummyBlock) {
-					withExistingParent(registryObject.getId().getPath(),
-							new ResourceLocation(CandyWorld.MOD_ID, "block/hardened_gummy_block"));
-				} else {
-					withExistingParent(registryObject.getId().getPath(),
-							new ResourceLocation(CandyWorld.MOD_ID, "block/" + registryObject.getId().getPath()));
-				}
-			} else {
-				if (registryObject.get() instanceof BucketItem) {
-					continue;
-				}
-				if (registryObject.get() instanceof TieredItem) {
-					singleTexture(registryObject.getId().getPath(), new ResourceLocation("item/handheld"),
-							"layer0", new ResourceLocation(CandyWorld.MOD_ID, "item/" + registryObject.getId().getPath()));
-				} else if (registryObject.get() instanceof SpawnEggItem) {
-					withExistingParent(registryObject.getId().getPath(), new ResourceLocation("item/template_spawn_egg"));
-				} else {
-					singleTexture(registryObject.getId().getPath(), new ResourceLocation("item/generated"),
-							"layer0", new ResourceLocation(CandyWorld.MOD_ID, "item/" + registryObject.getId().getPath()));
-				}
-			}
-		}
+//		for (RegistryObject<Item> registryObject : ModItems.ITEMS.getEntries()) {
+//			if (registryObject.get() instanceof BlockItem blockItem) {
+//				if (blockItem.getBlock() instanceof SaplingBlock) {
+//					singleTexture(registryObject.getId().getPath(), new ResourceLocation("item/generated"),
+//							"layer0", new ResourceLocation(CandyWorld.MOD_ID, "block/" + registryObject.getId().getPath()));
+//				} else if (blockItem.getBlock() instanceof ChocolateMushroomBlock) {
+//					withExistingParent(registryObject.getId().getPath(),
+//							new ResourceLocation(CandyWorld.MOD_ID, "block/" + registryObject.getId().getPath() + "0"));
+//				} else if (blockItem.getBlock() instanceof CottonCandyBushBlock) {
+//					singleTexture(registryObject.getId().getPath(), new ResourceLocation("item/generated"),
+//							"layer0", new ResourceLocation(CandyWorld.MOD_ID, "block/" + registryObject.getId().getPath() + "0"));
+//				} else if (blockItem.getBlock() instanceof GummyBlock) {
+//					withExistingParent(registryObject.getId().getPath(),
+//							new ResourceLocation(CandyWorld.MOD_ID, "block/gummy_block"));
+//				} else if (blockItem.getBlock() instanceof GummyWormBlock) {
+//					withExistingParent(registryObject.getId().getPath(),
+//							new ResourceLocation(CandyWorld.MOD_ID, "block/gummy_worm_block"));
+//				} else if (blockItem.getBlock() instanceof GummyWorkbenchBlock) {
+//					withExistingParent(registryObject.getId().getPath(),
+//							new ResourceLocation(CandyWorld.MOD_ID, "block/gummy_workbench"));
+//				} else if (blockItem.getBlock() instanceof BaseGummyBlock) {
+//					withExistingParent(registryObject.getId().getPath(),
+//							new ResourceLocation(CandyWorld.MOD_ID, "block/hardened_gummy_block"));
+//				} else {
+//					withExistingParent(registryObject.getId().getPath(),
+//							new ResourceLocation(CandyWorld.MOD_ID, "block/" + registryObject.getId().getPath()));
+//				}
+//			} else {
+//				if (registryObject.get() instanceof BucketItem) {
+//					continue;
+//				}
+//				if (registryObject.get() instanceof TieredItem) {
+//					singleTexture(registryObject.getId().getPath(), new ResourceLocation("item/handheld"),
+//							"layer0", new ResourceLocation(CandyWorld.MOD_ID, "item/" + registryObject.getId().getPath()));
+//				} else if (registryObject.get() instanceof SpawnEggItem) {
+//					withExistingParent(registryObject.getId().getPath(), new ResourceLocation("item/template_spawn_egg"));
+//				} else {
+//					singleTexture(registryObject.getId().getPath(), new ResourceLocation("item/generated"),
+//							"layer0", new ResourceLocation(CandyWorld.MOD_ID, "item/" + registryObject.getId().getPath()));
+//				}
+//			}
+//		}
 		generateBucket(ModItems.LIQUID_CANDY_BUCKET, ModFluids.LIQUID_CANDY_SOURCE);
 		generateBucket(ModItems.LIQUID_CHOCOLATE_BUCKET, ModFluids.LIQUID_CANDY_SOURCE);
 	}

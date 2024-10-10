@@ -25,11 +25,13 @@ public class ModFluids {
 	public static RegistryObject<FluidType> LIQUID_CANDY_FLUID_TYPE;
 
 	private static ForgeFlowingFluid.Properties liquidChocolateProperties() {
-		return new ForgeFlowingFluid.Properties(LIQUID_CHOCOLATE_FLUID_TYPE, LIQUID_CHOCOLATE_SOURCE, LIQUID_CHOCOLATE_FLOWING).bucket(ModItems.LIQUID_CHOCOLATE_BUCKET).block(ModBlocks.LIQUID_CHOCOLATE_BLOCK.get());
+		return new ForgeFlowingFluid.Properties(LIQUID_CHOCOLATE_FLUID_TYPE, LIQUID_CHOCOLATE_SOURCE, LIQUID_CHOCOLATE_FLOWING)
+				.bucket(ModItems.LIQUID_CHOCOLATE_BUCKET).block(ModBlocks.LIQUID_CHOCOLATE_BLOCK);
 	}
 
 	private static ForgeFlowingFluid.Properties liquidCandyProperties() {
-		return new ForgeFlowingFluid.Properties(LIQUID_CANDY_FLUID_TYPE, LIQUID_CANDY_SOURCE, LIQUID_CANDY_FLOWING).bucket(ModItems.LIQUID_CANDY_BUCKET).block(ModBlocks.LIQUID_CANDY_BLOCK.get());
+		return new ForgeFlowingFluid.Properties(LIQUID_CANDY_FLUID_TYPE, LIQUID_CANDY_SOURCE, LIQUID_CANDY_FLOWING)
+				.bucket(ModItems.LIQUID_CANDY_BUCKET).block(ModBlocks.LIQUID_CANDY_BLOCK);
 	}
 
 	public static void registerFluids() {

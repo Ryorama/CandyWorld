@@ -13,7 +13,6 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 
-import java.util.Random;
 import java.util.function.BiConsumer;
 
 public class ChocolateFoliagePlacer extends FoliagePlacer {
@@ -35,7 +34,8 @@ public class ChocolateFoliagePlacer extends FoliagePlacer {
 	}
 
 	@Override
-	protected void createFoliage(LevelSimulatedReader reader, FoliageSetter foliageSetter, RandomSource random, TreeConfiguration featureConfig, int i, FoliageAttachment foliage, int i1, int i2, int i3) {
+	protected void createFoliage(LevelSimulatedReader reader, FoliageSetter foliageSetter, RandomSource random,
+	                             TreeConfiguration featureConfig, int i, FoliageAttachment foliage, int i1, int i2, int i3) {
 		BlockPos blockpos = foliage.pos();
 		BlockState leafState = featureConfig.foliageProvider.getState(random, blockpos);
 		BlockState trunkState = featureConfig.trunkProvider.getState(random, blockpos);
@@ -53,7 +53,7 @@ public class ChocolateFoliagePlacer extends FoliagePlacer {
 					if (shouldSkipLocation(random, j1, l2, l1, yPlusHeight, false)) {
 						blockpos$mutable.set(x, y, k1);
 						if (isAirOrLeaves(reader, blockpos$mutable)) {
-							biConsumer.accept(blockpos$mutable, leafState);
+							foliageSetter.set(blockpos$mutable, leafState);
 						}
 					}
 				}
@@ -63,11 +63,13 @@ public class ChocolateFoliagePlacer extends FoliagePlacer {
 		for (int j2 = 0; j2 < height; ++j2) {
 			BlockPos abovePos = blockpos.above(j2);
 
-			setLogBlock(reader, abovePos, 0, 0, 0, trunkState, biConsumer);
+			foliageSetter.set(abovePos, trunkState);
 		}
 	}
 
-	private void setLogBlock(LevelSimulatedReader reader, BlockPos pos, int xOffset, int yOffset, int zOffset, BlockState leafState, BiConsumer<BlockPos, BlockState> biConsumer) {
+
+	private void setLogBlock(LevelSimulatedReader reader, BlockPos pos, int xOffset, int yOffset, int zOffset,
+	                         BlockState leafState, BiConsumer<BlockPos, BlockState> biConsumer) {
 		BlockPos.MutableBlockPos blockpos$mutable = new BlockPos.MutableBlockPos();
 		blockpos$mutable.setWithOffset(pos, xOffset, yOffset, zOffset);
 		if (isAirOrLeaves(reader, blockpos$mutable)) {
